@@ -1,0 +1,128 @@
+---
+title: "SQMF Formative Assessment FT2"
+author: "EXAM NUMBER"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = here::here())
+
+# I will attach the packages you need
+library(tidyverse)
+library(ggeffects)
+```
+
+# The data: English visual lexical decision and naming latencies
+
+Read the data `./data/english.csv`.
+
+```{r read}
+english <- ...
+```
+
+The `english` data set contains mean visual lexical decision latencies `RTlexdec` and word
+naming latencies `RTnaming` based on 2284 mono-morphemic English nouns and verbs,
+averaged for old and young subjects `AgeSubject`
+
+There are also various predictor variables related to properties of each word.
+
+Here's an explanation of each column in the data set.
+
+- `RTlexdec`: numeric vector of log RT in visual lexical decision.
+- `RTnaming`: numeric vector of log RT in word naming.
+- `Familiarity`: numeric vector of subjective familiarity ratings.
+- `Word`: a factor with 2284 words.
+- `AgeSubject`: a factor with as levels the age group of the subject: 
+          `young` versus `old`. 
+- `WordCategory`: a factor with as levels the word categories 
+          `N` (noun) and `V` (verb). 
+- `WrittenFrequency`: numeric vector with log frequency in the CELEX lexical
+          database. 
+- `WrittenSpokenFrequencyRatio`: numeric vector with the logged ratio 
+          of written frequency (CELEX) to spoken frequency (British National Corpus). 
+- `FamilySize`: numeric vector with log morphological family size. 
+- `DerivationalEntropy`: numeric vector with derivational entropy. 
+- `InflectionalEntropy`: numeric vector with inflectional entropy. 
+- `NumberSimplexSynsets`: numeric vector with the log-transformed count of 
+          synonym sets in WordNet in which the word is listed. 
+- `NumberComplexSynsets`: numeric vector with the log-transformed count of
+          synonym sets in WordNet in which the word is listed as part of a compound. 
+- `LengthInLetters`: numeric vector with length of the word in letters. 
+- `Ncount`: numeric vector with orthographic neighborhood density, defined as the number of lemmas in CELEX with the same length (in letters) 
+    at Hamming distance 1. 
+- `MeanBigramFrequency`: numeric vector with mean log bigram frequency. 
+- `FrequencyInitialDiphone`: numeric vector with log frequency of initial diphone. 
+- `ConspelV`: numeric vector with type count of orthographic neighbors. 
+- `ConspelN`: numeric vector with token count of orthographic neighbors. 
+- `ConphonV`: numeric vector with type count of phonological neighbors. 
+- `ConphonN`: numeric vector with token count of phonological neighbors. 
+- `ConfriendsV`: numeric vector with type counts of consistent words. 
+- `ConfriendsN`: numeric vector with token counts of consistent words. 
+- `ConffV`: numeric vector with type count of forward inconsistent words.
+- `ConffN`: numeric vector with token count of forward inconsistent words.
+- `ConfbV`: numeric vector with type count of backward inconsistent words. 
+- `ConfbN`: numeric vector with token count of backward inconsistent words.
+- `NounFrequency`: numeric vector with the frequency of the word used as noun. 
+- `VerbFrequency`: numeric vector with the frequency of the word used as verb. 
+- `CV`: factor specifying whether the initial phoneme of 
+          the word is a consonant (`C`) or a vowel (`V`). 
+- `Obstruent`: factor specifying whether the initial phoneme 
+          of the word is a continuant (`cont`) or an obstruent (`obst`). 
+- `Frication`: factor specifying whether the initial phoneme 
+          has a burst (`burst`) or frication (`frication`) for 
+          consonant-initial words, and for vowel-initial words whether the vowel is 
+          `long` or `short`. 
+- `Voice`: factor indicating whether the initial phoneme is `voiced`
+          or `voiceless`. 
+- `FrequencyInitialDiphoneWord`: numeric vector with the log-transformed 
+          frequency of the initial diphone given that it is syllable-initial. 
+- `FrequencyInitialDiphoneSyllable`: numeric vector with the log-transformed 
+          frequency of the initial diphone given that it is word initial. 
+- `CorrectLexdec`: numeric vector with the proportion of 
+          subjects that accepted the item as a word in lexical decision.
+
+
+Balota, D.A., Cortese, M.J. and Pilotti, M. (1999) *Visual lexical decision latencies for 2906 words*. <http://www.artsci.wustl.edu/~dbalota/lexical_decision.html>.
+
+Spieler, D. H. and Balota, D. A. (1998) *Naming latencies for 2820 words*. <http://www.artsci.wustl.edu/~dbalota/naming.html>.
+
+# Modelling reaction times
+
+The following code chunk contains a linear model.
+
+Pick another discrete predictor and another continuous predictor and add them to the model.
+
+```{r eng-lm}
+eng_lm <- lm(
+  # Replace ... with a discrete and a continuous predictor
+  RTlexdec ~ WrittenFrequency + AgeSubject + ... + ...,
+  data = english
+)
+
+summary(eng_lm)
+```
+
+**NOTE**: `RTltxdec` is in logs rather than milliseconds, but how to interpret coefficients does not change (only the measurement unit is different).
+
+Now use `ggpredict()` to calculate the predicted mean log-RT depending on the different predictors.
+
+```{r eng-lm-pred}
+ggpredict(eng_lm, ...)
+```
+
+And finally, plot the model predictions.
+
+```{r eng-lm-plot}
+ggpredict(eng_lm, ...) %>%
+  plot()
+```
+
+# Reporting
+
+Now write a full report of the model you have run.
+Remember that you have to report both the model specifications (outcome, predictors, levels, type of coding for the predictors, ...) and the results.
+
+
+
