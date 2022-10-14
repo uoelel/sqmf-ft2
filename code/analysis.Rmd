@@ -124,5 +124,10 @@ ggpredict(eng_lm, ...) %>%
 Now write a full report of the model you have run.
 Remember that you have to report both the model specifications (outcome, predictors, levels, type of coding for the predictors, ...) and the results.
 
+...
 
+# Render (knit) this report
 
+Now you can render (aka knit) this report.
+
+Just click on the Knit button!
