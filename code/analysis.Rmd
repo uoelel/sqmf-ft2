@@ -83,10 +83,12 @@ Here's an explanation of each column in the data set.
 - `CorrectLexdec`: numeric vector with the proportion of 
           subjects that accepted the item as a word in lexical decision.
 
+These are the sources given for the dataset, but the links are broken:
 
-Balota, D.A., Cortese, M.J. and Pilotti, M. (1999) *Visual lexical decision latencies for 2906 words*. <http://www.artsci.wustl.edu/~dbalota/lexical_decision.html>.
+- Balota, D.A., Cortese, M.J. and Pilotti, M. (1999) *Visual lexical decision latencies for 2906 words*. <http://www.artsci.wustl.edu/~dbalota/lexical_decision.html>.
+- Spieler, D. H. and Balota, D. A. (1998) *Naming latencies for 2820 words*. <http://www.artsci.wustl.edu/~dbalota/naming.html>.
 
-Spieler, D. H. and Balota, D. A. (1998) *Naming latencies for 2820 words*. <http://www.artsci.wustl.edu/~dbalota/naming.html>.
+You can look at this paper instead: <http://germel.dyndns.org/psyling/pdf/2004_Balota_et_al_Visual%20Word%20Recognition.pdf>.
 
 # Modelling reaction times
 
