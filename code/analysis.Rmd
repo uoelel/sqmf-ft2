@@ -134,5 +134,5 @@ Just click on the Knit button!
 
 # Submit your assessment on GitHub
 
-When you are done, upload all the files of this RStudio Project to GitHub,
+When you are done, upload this file and the `analysis.html` file from this RStudio Project to GitHub,
 in the repository of the FT2 assessment.
